@@ -1,0 +1,12 @@
+<h1>Flickr API APP</h1>
+<h3>Enter a Flickr ID or username to find their pictures</h3>
+
+<%= form_tag(root_path, method: :get) do %>
+	<%= text_field_tag :flickr_id, nil, placeholder: "Enter ID or username here" %><br>
+	<%= submit_tag "Search" %>
+<% end %>
+
+
+<% if !params[:flickr_id].nil? %>
+	<%= render_flickr_photos(params[:flickr_id]) %>
+<% end %>
